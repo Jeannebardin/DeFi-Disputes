@@ -40,6 +40,7 @@ function getComment(id, db = conn) {
   return db('comments')
     .select()
     .where('id', id)
+    .first()
 }
 
 function addComment(newComment, db = conn) {
