@@ -1,10 +1,82 @@
 const express = require('express')
 
-// eslint-disable-next-line no-unused-vars
 const db = require('../db/db')
 
 const router = express.Router()
 
-// put routes here
+router.get('/', (req, res) => {
+  db.getAllPosts()
+    .then(posts => {
+      posts.forEach(post => {
+        post.paragraphs = JSON.parse(post.paragraphs)
+        post.dateCreated = post.date_created
+        post.commentCount = post.comment_count
+        delete post.date_created
+        delete post.comment_count
+      })
 
+      res.json(posts)
+    })
+    .catch(err => res.status(500).json({ message: err.message }))
+})
+
+router.post('/', (req, res) => {
+  const { title, paragraphs } = req.body
+  const newPost = {
+    title,
+    paragraphs: JSON.stringify(paragraphs),
+    date_created: Date.now()
+  }
+
+  db.addPost(newPost)
+    .then(idArr => {
+      const id = idArr[0]
+      db.getPostById(id)
+        .then(post => {
+          post.paragraphs = JSON.parse(post.paragraphs)
+          post.dateCreated = post.date_created
+          post.commentCount = post.comment_count
+          delete post.date_created
+          delete post.comment_count
+
+          res.json(post)
+        })
+    })
+    .catch(err => res.status(500).json({ message: err.message }))
+})
+
+router.patch('/:id', (req, res) => {
+  const { id } = req.params
+  const { title, paragraphs } = req.body
+
+  const newDetails = {
+    title,
+    paragraphs: JSON.stringify(paragraphs),
+  }
+
+  db.updatePost(id, newDetails)
+    .then(() => {
+      db.getPostById(id)
+        .then(post => {
+          post.paragraphs = JSON.parse(post.paragraphs)
+          post.dateCreated = post.date_created
+          post.commentCount = post.comment_count
+          delete post.date_created
+          delete post.comment_count
+
+          res.json(post)
+        })
+    })
+    .catch(err => res.status(500).json({ message: err.message }))
+})
+
+router.delete('/:id', (req, res) => {
+  const { id } = req.params
+  db.deletePost(id)
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(err => res.status(500).json({ message: err.message }))
+})
+ 
 module.exports = router
