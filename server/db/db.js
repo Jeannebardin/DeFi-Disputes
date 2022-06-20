@@ -30,10 +30,44 @@ function deletePost(id, db = conn) {
     .where('id', id)
 }
 
+function getCommentByPostId(postId, db = conn) {
+  return db('comments')
+    .select()
+    .where('post_id', postId)
+}
+
+function getComment(id, db = conn) {
+  return db('comments')
+    .select()
+    .where('id', id)
+}
+
+function addComment(newComment, db = conn) {
+  return db('comments')
+    .insert(newComment)
+}
+
+function updateComment(id, updatedComment, db = conn) {
+  return db('comments')
+    .update({ comment: updatedComment })
+    .where('id', id)
+}
+
+function deleteComment(id, db = conn) {
+  return db('comments')
+  .delete()
+  .where('id', id)
+}
+
 module.exports = {
   getAllPosts,
   getPostById,
   addPost,
   updatePost,
   deletePost,
+  getCommentByPostId,
+  getComment,
+  addComment,
+  updateComment,
+  deleteComment
 }

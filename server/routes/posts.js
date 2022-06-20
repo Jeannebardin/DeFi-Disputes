@@ -78,5 +78,47 @@ router.delete('/:id', (req, res) => {
     })
     .catch(err => res.status(500).json({ message: err.message }))
 })
+
+router.get('/:postId/comments', (req, res) => {
+  const { postId } = req.params
+  db.getCommentByPostId(postId)
+    .then(comments => {
+      comments.forEach(comment => {
+        comment.postId = comment.post_id
+        comment.datePosted = comment.date_posted
+        delete comment.post_id
+        delete comment.date_posted
+      })
+      res.json(comments)
+    })
+    .catch(err => res.status(500).json({ message: err.message }))
+})
+
+router.post('/:postId/comments', (req, res) => {
+  const { postId } = req.params
+  const { comment } = req.body
+
+  const newComment = {
+    post_id: postId,
+    comment,
+    date_posted: Date.now()
+  }
+
+  db.addComment(newComment)
+    .then(idArr => {
+      const id = idArr[0]
+      db.getComment(id)
+        .then((comment) => {
+          comment.postId = comment.post_id
+          comment.datePosted = comment.date_posted
+          delete comment.post_id
+          delete comment.date_posted
+
+          res.json(comment)
+        })
+      })
+    .catch(err => res.status(500).json({ message: err.message }))
+})
+
  
 module.exports = router
