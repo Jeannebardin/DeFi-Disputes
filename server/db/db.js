@@ -18,6 +18,26 @@ function addPost(post, db = conn) {
     .insert(post)
 }
 
+//the 3 functions for godaddyData are addPost, getCatIdByName and addToJoinTable
+//the addpost is already above.. so not sure if need to rename or include it as well?
+
+function addgodaddyPost(post, db = conn) {
+  return db('godaddyPosts')
+  .insert(post)
+}
+
+function getCatIdByName(id, db = conn){
+  return db('categories')
+  .select()
+    .where('id', id)
+    .first()
+}
+
+function addTogodaddyPosts_categories(postId, c_id, db = conn){
+  return db('godaddyPosts_categories')
+  .insert({category_id: c_id,godaddyPosts_id: postId})
+}
+
 function updatePost(id, newDetails, db = conn) {
   return db('posts')
     .update(newDetails)
@@ -60,6 +80,10 @@ function deleteComment(id, db = conn) {
   .where('id', id)
 }
 
+
+
+
+
 module.exports = {
   getAllPosts,
   getPostById,
@@ -70,5 +94,8 @@ module.exports = {
   getComment,
   addComment,
   updateComment,
-  deleteComment
+  deleteComment,
+  addgodaddyPost,
+  getCatIdByName,
+  addTogodaddyPosts_categories,
 }

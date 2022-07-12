@@ -34,7 +34,7 @@ h3 {
 }
 
 .sidebar {
-  background: rgb(61, 79, 93);
+  background: black;
   color: #fff;
 }
 
@@ -103,7 +103,7 @@ h3 {
   margin-left: 1em;
 }
 .post-description {
-  font-family: Georgia, 'Cambria', serif;
+  font-family: 'opendyslexic';
   color: #444;
   line-height: 1.8em;
 }

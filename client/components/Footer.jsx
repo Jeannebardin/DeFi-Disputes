@@ -1,8 +1,8 @@
 import React from 'react'
 
 function Footer() {
-  const copyright = '1952 Harper & Brothers'
-  const author = 'E. B. White'
+  const copyright = 'An open source community project'
+  const author = '{ like REKT, but not sexy }'
 
   return (
     <div className="footer">

@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom'
 function Header() {
   return (
     <div className="header">
-      <h1 className="brand-title">Charlotte&rsquo;s Web Log</h1>
+      <h1 className="brand-title">DeFi Disputes</h1>
+      {/* <img src="/Images/DeFi_Disputes_logo.png"> */}
+
+
       <nav className="nav">
         <ul className="nav-list">
           <li className="nav-item">
@@ -15,7 +18,12 @@ function Header() {
           </li>
           <li className="nav-item">
             <Link to="/posts/new" className="pure-button">
-              Add Post
+              Submit
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/posts/new" className="pure-button">
+              About
             </Link>
           </li>
         </ul>
