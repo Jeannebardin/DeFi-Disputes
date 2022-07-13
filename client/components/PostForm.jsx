@@ -59,23 +59,39 @@ function PostForm(props) {
 
       <fieldset>
         <div className="pure-control-group">
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            name="title"
-            value={newPost.title}
+        <label htmlFor="paragraphs">Your name, contact email or twitter handle</label>
+        <textarea
+            name="paragraphs"
+            value={newPost.paragraphs}
             onChange={handleChange}
-          />
+          ></textarea>
         </div>
 
         <div className="pure-control-group">
-          <label htmlFor="paragraphs">Blog</label>
+          <label htmlFor="paragraphs">Article or link to submit</label>
           <textarea
             name="paragraphs"
             value={newPost.paragraphs}
             onChange={handleChange}
           ></textarea>
         </div>
+
+        <div className="pure-control-group">
+          <label htmlFor="paragraphs">Thanks for contributing to the community! Drop your ethereum address here, just in case.</label>
+          <textarea
+            name="paragraphs"
+            value={newPost.paragraphs}
+            onChange={handleChange}
+          ></textarea>
+        </div>
+
+
+
+
+
+
+
+
 
         <div className="pure-controls">
           <input className="pure-button" type="submit" />

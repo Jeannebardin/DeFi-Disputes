@@ -80,7 +80,9 @@ function deleteComment(id, db = conn) {
   .where('id', id)
 }
 
-
+function endConnection(db = conn) {
+  return db.destroy()
+}
 
 
 
@@ -98,4 +100,5 @@ module.exports = {
   addgodaddyPost,
   getCatIdByName,
   addTogodaddyPosts_categories,
+  endConnection,
 }
