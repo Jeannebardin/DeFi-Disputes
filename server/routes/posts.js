@@ -7,12 +7,15 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getAllPosts()
     .then(posts => {
+     console.log(posts)
       posts.forEach(post => {
-        post.paragraphs = JSON.parse(post.paragraphs)
+        // post.paragraphs = JSON.parse(post.paragraphs)
+        // post.categories = JSON.parse(post.categories)
+        // post.content = JSON.parse(post.content)
         post.dateCreated = post.date_created
-        post.commentCount = post.comment_count
+        post.voteCount = post.vote_count
         delete post.date_created
-        delete post.comment_count
+        delete post.vote_count
       })
 
       res.json(posts)

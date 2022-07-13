@@ -2,7 +2,7 @@ const config = require('./knexfile').development
 const conn = require('knex')(config)
 
 function getAllPosts(db = conn) {
-  return db('posts')
+  return db('godaddyPosts')
     .select()
 }
 
@@ -26,10 +26,10 @@ function addgodaddyPost(post, db = conn) {
   .insert(post)
 }
 
-function getCatIdByName(id, db = conn){
+function getCatIdByName(name, db = conn){
   return db('categories')
   .select()
-    .where('id', id)
+    .where('category_name', name)
     .first()
 }
 
@@ -84,7 +84,20 @@ function endConnection(db = conn) {
   return db.destroy()
 }
 
+function deletegodaddyPostsTable(db = conn){
+return db('godaddyPosts')
+.delete()
+}
 
+function deleteJoinsTable(db = conn){
+  return db('godaddyPosts_categories')
+  .delete()
+  }
+
+function deleteEverythingBeware(db = conn){
+   return deleteJoinsTable()
+   .then (()=> deletegodaddyPostsTable())
+    }
 
 module.exports = {
   getAllPosts,
@@ -101,4 +114,7 @@ module.exports = {
   getCatIdByName,
   addTogodaddyPosts_categories,
   endConnection,
+  deletegodaddyPostsTable,
+  deleteJoinsTable,
+  deleteEverythingBeware
 }

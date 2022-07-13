@@ -5,6 +5,7 @@ export function getPosts() {
     .get('/v1/posts')
     .then((res) => {
       res.body.forEach((post) => validateNoSnakeCase(post))
+      console.log(res.body)
       return res.body
     })
     .catch(errorHandler('GET', '/v1/posts'))

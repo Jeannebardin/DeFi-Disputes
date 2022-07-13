@@ -56,6 +56,7 @@ exports.seed = async function(knex) {
     {id: 48, category_name: 'Yield Farming'},
     {id: 49, category_name: 'Meme Coins'},
     {id: 50, category_name: 'Web 3'},
+    {id: 51, category_name: 'Derivative'}
 
   ]);
 };

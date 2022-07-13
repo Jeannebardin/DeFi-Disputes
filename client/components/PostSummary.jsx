@@ -16,9 +16,8 @@ function PostSummary(props) {
         </header>
       </Link>
 
-      {paragraphs.map((para, key) => {
-        return <p key={key}>{para}</p>
-      })}
+     <p>{paragraphs}</p>
+     
       {props.children}
     </div>
   )
