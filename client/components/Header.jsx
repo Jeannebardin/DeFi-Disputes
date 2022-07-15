@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom'
 function Header() {
   return (
     <div className="header">
-      {/* <h1 className="brand-title">DeFi Disputes</h1> */}
-      <Link to='/'>
+      <h1 className="brand-title">DD</h1>
+      {/* <Link to='/'>
       <img src="/Images/DeFi_Disputes_logo_sml.png" alt="/Images/Alternative_Image.png"></img>
-    </Link>
+    </Link> */}
       
 {/* need to create a link from the image back to the home page? localhost 3000? */}
     
@@ -16,7 +16,7 @@ function Header() {
         <ul className="nav-list">
       
           <li className="nav-item">
-            <Link to="/posts/new" className="pure-button">
+            <Link to="/Submit" className="pure-button">
               Submit
             </Link>
           </li>

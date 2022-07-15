@@ -13,7 +13,6 @@ export function getPosts() {
 
 export function addPost(post) {
   // convert the large paragraphs string into an array of paragraphs
-  post.paragraphs = post.paragraphs.split('\n')
   return request
     .post('/v1/posts')
     .send(post)

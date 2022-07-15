@@ -8,42 +8,33 @@ router.get('/', (req, res) => {
   db.getAllPosts()
     .then(posts => {
      console.log(posts)
-      posts.forEach(post => {
-        // post.paragraphs = JSON.parse(post.paragraphs)
-        // post.categories = JSON.parse(post.categories)
-        // post.content = JSON.parse(post.content)
+      const allThePosts = posts.map(post => {
+   
         post.dateCreated = post.date_created
         post.voteCount = post.vote_count
         delete post.date_created
         delete post.vote_count
+        return db.getCategoriesbyPostID(post.id).then((categories)=>{
+          post.categories = categories
+          return(post)
+        })
       })
+      return Promise.all(allThePosts).then((posts)=>{
+  res.json(posts)
 
-      res.json(posts)
+})
     })
     .catch(err => res.status(500).json({ message: err.message }))
 })
 
 router.post('/', (req, res) => {
-  const { title, paragraphs } = req.body
-  const newPost = {
-    title,
-    paragraphs: JSON.stringify(paragraphs),
-    date_created: Date.now()
-  }
+  const { contact, article, address } = req.body
 
-  db.addPost(newPost)
+  db.addPost(contact, article, address)
     .then(idArr => {
       const id = idArr[0]
-      db.getPostById(id)
-        .then(post => {
-          post.paragraphs = JSON.parse(post.paragraphs)
-          post.dateCreated = post.date_created
-          post.commentCount = post.comment_count
-          delete post.date_created
-          delete post.comment_count
+     res.json('submitted!', id)
 
-          res.json(post)
-        })
     })
     .catch(err => res.status(500).json({ message: err.message }))
 })

@@ -153,6 +153,7 @@ h3 {
 }
 
 .comment-date {
+
   color: gray;
   display: block;
 }
@@ -165,8 +166,16 @@ h3 {
   margin-left: 0.5em;
 }
 
-.comment .pure-button {
+.comment 
+{
   margin-top: 0.5em;
+}
+
+
+.pure-button {
+  margin-top: 0.5em;
+  background: rgb(28, 238, 28);
+  font-weight: 500;
 }
 
 .footer {

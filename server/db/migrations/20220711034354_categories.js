@@ -7,6 +7,7 @@
   return knex.schema.createTable('Categories', (table) => {
     table.increments().primary()
     table.string('category_name')
+    table.string('type')
   })
 }
 

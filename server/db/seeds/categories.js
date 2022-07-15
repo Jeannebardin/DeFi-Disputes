@@ -1,3 +1,5 @@
+
+
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> } 
@@ -6,7 +8,7 @@ exports.seed = async function(knex) {
   // Deletes ALL existing entries
   await knex('Categories').del()
   await knex('Categories').insert([
-    {id: 1, category_name: 'AML'},
+    {id: 1, category_name: 'AML', type: 'something'},
     {id: 2, category_name: 'Australia'},
     {id: 3, category_name: 'Litigation'},
     {id: 4, category_name: 'Regulation'},

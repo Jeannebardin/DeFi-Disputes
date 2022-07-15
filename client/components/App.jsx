@@ -6,8 +6,11 @@ import useFetchPosts from './hooks/useFetchPosts'
 import Layout from './Layout'
 import Post from './Post'
 import Posts from './Posts'
-import PostForm from './PostForm'
+// import PostForm from './PostForm'
 import CommentForm from './CommentForm'
+import FormAboutContactLayout from './FormAboutContactLayout'
+import SubmitSuccess from './SubmitSuccess'
+import DropDownMenu from './DropDownMenu/DropDown'
 
 function App() {
   const { posts, loading, error, fetchPosts } = useFetchPosts()
@@ -26,9 +29,12 @@ function App() {
               element={<CommentForm variant="new" />}
             />
           </Route>
-          <Route path=":id/edit" element={<PostForm variant="edit" />} />
-          <Route path="new" element={<PostForm variant="new" />} />
+          {/* <Route path=":id/edit" element={<PostForm variant="edit" />} />
+          <Route path="new" element={<PostForm variant="new" />} /> */}
         </Route>
+
+        <Route path="Submit" element={<FormAboutContactLayout/>} />
+        <Route path="Success!" element={<SubmitSuccess/>} />
       </Route>
 
       {error && error}

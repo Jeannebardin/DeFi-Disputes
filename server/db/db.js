@@ -33,6 +33,27 @@ function getCatIdByName(name, db = conn){
     .first()
 }
 
+function getCategoriesbyPostID(postID, db = conn){
+  return db('categories')
+  .select('postID', 'something goes here??')
+  .join('categories', 'categories.id', 'categories.postID_id')
+  .where('godaddyPosts_id', postID)
+  // .first()
+}
+
+
+function getWombleAndCharacteristic(name, db = connection) {
+  return db('wombles')
+    .select('name', 'description')
+    .join('characteristics', 'characteristics.id', 'wombles.characteristic_id')
+ 
+
+
+
+
+
+
+
 function addTogodaddyPosts_categories(postId, c_id, db = conn){
   return db('godaddyPosts_categories')
   .insert({category_id: c_id,godaddyPosts_id: postId})
@@ -116,5 +137,6 @@ module.exports = {
   endConnection,
   deletegodaddyPostsTable,
   deleteJoinsTable,
-  deleteEverythingBeware
+  deleteEverythingBeware,
+  getCategoriesbyPostID
 }
