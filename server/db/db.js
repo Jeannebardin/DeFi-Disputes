@@ -42,11 +42,7 @@ function getCategoriesbyPostID(postID, db = conn){
 }
 
 
-function getWombleAndCharacteristic(name, db = connection) {
-  return db('wombles')
-    .select('name', 'description')
-    .join('characteristics', 'characteristics.id', 'wombles.characteristic_id')
- 
+
 
 
 
