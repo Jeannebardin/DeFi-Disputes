@@ -4,7 +4,7 @@
  */
 
  exports.up = (knex) => {
-  return knex.schema.createTable('Categories', (table) => {
+  return knex.schema.createTable('categories', (table) => {
     table.increments().primary()
     table.string('category_name')
     table.string('type')
@@ -18,5 +18,5 @@
  */
 
 exports.down = (knex) => {
-  return knex.schema.dropTable('Categories')
+  return knex.schema.dropTable('categories')
 };
