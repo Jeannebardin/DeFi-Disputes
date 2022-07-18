@@ -10,7 +10,6 @@ import Posts from './Posts'
 import CommentForm from './CommentForm'
 import FormAboutContactLayout from './FormAboutContactLayout'
 import SubmitSuccess from './SubmitSuccess'
-import DropDownMenu from './DropDownMenu/DropDown'
 
 function App() {
   const { posts, loading, error, fetchPosts } = useFetchPosts()
@@ -39,6 +38,7 @@ function App() {
 
       {error && error}
     </Routes>
+    
   )
 }
 

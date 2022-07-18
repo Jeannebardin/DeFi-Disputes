@@ -117,6 +117,21 @@ function validatePostResponse(method, route, post) {
   }
 }
 
+
+export function getdropDownMenu() {
+return request
+.get('./DropDownMenu')
+.then((res) => {
+  return res.body
+})
+.catch(errorHandler('GET', '/DropDownMenu'))
+
+}
+
+
+
+  
+
 // TODO: Use this.
 // function validateCommentResponse (method, route, comment) {
 //   if (!comment) {

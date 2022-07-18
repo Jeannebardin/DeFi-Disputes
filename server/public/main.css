@@ -59,6 +59,7 @@
   align-items: center;
 }
 
+/* This is the Div for the counting number text */
 .DisplayDiv {
   display: flex;
   flex-direction: column;
@@ -68,6 +69,7 @@
   align-content: center;
   text-align: center;
   font-weight: 700;
+  color: black;
   font-size: 2em;
   height: 25%;
 }
@@ -87,7 +89,7 @@
   color: white;
   width: 0px;
   height: 0px;
-  border: 88px solid black;
+  border: 20px solid black;
   border-top-color: transparent;
   border-right-color: transparent;
   border-bottom-color: rgb(28, 238, 28);
@@ -99,7 +101,7 @@
   color: white;
   width: 0px;
   height: 0px;
-  border: 88px solid black;
+  border: 20px solid black;
   border-top-color: red;
   border-right-color: transparent;
   border-bottom-color: transparent;

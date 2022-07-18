@@ -34,9 +34,12 @@
   },
   "dependencies": {
     "@vscode/sqlite3": "^5.0.8",
+    "babel": "^6.23.0",
+    "chroma-js": "^2.4.2",
     "express": "^4.17.2",
     "knex": "^1.0.7",
     "lodash": "^4.17.20",
+    "react-select": "^5.4.0",
     "sqlite3": "^5.0.8"
   },
   "devDependencies": {
@@ -63,20 +66,7 @@
     "superagent": "7.1.1",
     "supertest": "^6.2.2",
     "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2",
-    "@progress/kendo-data-query": "latest",
-    "@progress/kendo-drawing": "latest",
-    "@progress/kendo-licensing": "latest",
-    "@progress/kendo-react-animation": "latest",
-    "@progress/kendo-react-buttons": "latest",
-    "@progress/kendo-react-common": "latest",
-    "@progress/kendo-react-data-tools": "latest",
-    "@progress/kendo-react-dateinputs": "latest",
-    "@progress/kendo-react-dropdowns": "latest",
-    "@progress/kendo-react-inputs": "latest",
-    "@progress/kendo-react-intl": "latest",
-    "@progress/kendo-react-popup": "latest",
-    "@progress/kendo-react-treeview": "latest"
+    "webpack-cli": "^4.9.2"
   },
   "prettier": {
     "semi": false,

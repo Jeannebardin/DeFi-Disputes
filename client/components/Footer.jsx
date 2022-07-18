@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function Footer() {
-  const community = '"REKT for REG"  An open source community project'
+  const community = 'An open source community project'
   const subscription = '{ subscribe button and capture email field goes here for joining mailing list }'
 
   return (

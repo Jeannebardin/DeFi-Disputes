@@ -34,14 +34,16 @@ function getCatIdByName(name, db = conn){
 }
 
 function getCategoriesbyPostID(postID, db = conn){
-  return db('categories')
-  .select('postID', 'something goes here??')
-  .join('categories', 'categories.id', 'categories.postID_id')
+  return db('godaddyPosts_categories')
+  .select('category_name', 'type', 'categories.id')
+  .join('categories', 'categories.id', 'category_id')
   .where('godaddyPosts_id', postID)
-  // .first()
 }
 
-
+function getAllCategories(db = conn){
+return db('categories')
+.select()
+}
 
 
 
@@ -134,5 +136,6 @@ module.exports = {
   deletegodaddyPostsTable,
   deleteJoinsTable,
   deleteEverythingBeware,
-  getCategoriesbyPostID
+  getCategoriesbyPostID,
+  getAllCategories
 }

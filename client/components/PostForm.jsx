@@ -67,7 +67,7 @@ function PostForm(props) {
       {props.variant === 'edit' ? (
         <h2 className="post-title">Edit Post</h2>
       ) : (
-        <h2 className="post-title">Submit a LINK to be published</h2>
+        <h2 className="post-title">Submit a LINK</h2>
       )}
 
 

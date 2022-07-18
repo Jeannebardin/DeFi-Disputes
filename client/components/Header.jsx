@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function Header() {
   return (
     <div className="header">
-      <h1 className="brand-title">DD</h1>
+      <h1 className="brand-title">DeFi Disputes</h1>
       {/* <Link to='/'>
       <img src="/Images/DeFi_Disputes_logo_sml.png" alt="/Images/Alternative_Image.png"></img>
     </Link> */}
