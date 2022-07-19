@@ -16,7 +16,7 @@ function PostForm(props) {
   // const { 
   //   loading, 
   //   fetchPosts } = useOutletContext()
-  const [submitPost, submitNewPost] = useState({ user_name: '', title: '', eth_addy: '', jurisdiction: [], snippet: '' })
+  const [submitPost, submitNewPost] = useState({ user_name: '', title: '', eth_addy: '', jurisdiction: 1, snippet: '' })
   const [errorMessage, setErrorMessage] = useState('')
 
   // useEffect(() => {

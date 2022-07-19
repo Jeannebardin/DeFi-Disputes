@@ -11,6 +11,7 @@ function useFetchPosts() {
     getPosts()
       .then((posts) => {
         setPosts(posts)
+        //DISPATCH AN ACTION TO PUT THIS IN THE REDUX STORE
         return null
       })
       .finally(() => setLoading(false))
