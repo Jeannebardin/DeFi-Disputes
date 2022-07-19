@@ -8,7 +8,7 @@ import {
 import { addPost, 
   // updatePost 
 } from '../api'
-
+import DropDownMenuForm from './DropDownMenuForm'
 
 function PostForm(props) {
   const navigate = useNavigate()
@@ -16,7 +16,7 @@ function PostForm(props) {
   // const { 
   //   loading, 
   //   fetchPosts } = useOutletContext()
-  const [submitPost, submitNewPost] = useState({ contact: '', article: '', address: '' })
+  const [submitPost, submitNewPost] = useState({ user_name: '', title: '', eth_addy: '', jurisdiction: [], snippet: '' })
   const [errorMessage, setErrorMessage] = useState('')
 
   // useEffect(() => {
@@ -24,6 +24,12 @@ function PostForm(props) {
   //     submitNewPost({ })
   //   }
   // }, [])
+
+  const handleSelect = React.useCallback((value) => {
+    console.log(value)
+    submitNewPost({ ...submitPost, jurisdiction: value })
+    console.log(submitPost)
+  }, [])
 
   function onSubmit(e) {
     e.preventDefault()
@@ -57,6 +63,7 @@ function PostForm(props) {
 
   function handleChange(e) {
     submitNewPost({ ...submitPost, [e.target.name]: e.target.value })
+    console.log(submitPost)
   }
 
   if (props.loading) return <p>Loading...</p>
@@ -77,8 +84,8 @@ function PostForm(props) {
         <div className="pure-control-group">
         <label htmlFor="paragraphs">Name or twitter handle</label>
         <textarea
-            name="contact"
-            value={submitPost.contact}
+            name="user_name"
+            value={submitPost.user_name}
             type='text'
             onChange={handleChange}
           ></textarea>
@@ -87,8 +94,8 @@ function PostForm(props) {
         <div className="pure-control-group">
           <label htmlFor="paragraphs">Full link: http...</label>
           <textarea
-            name="article"
-            value={submitPost.article}
+            name="title"
+            value={submitPost.title}
             type='text'
             onChange={handleChange}
           ></textarea>
@@ -97,8 +104,8 @@ function PostForm(props) {
         <div className="pure-control-group">
           <label htmlFor="paragraphs">Drop your ethereum address (just in case) </label>
           <textarea
-            name="address"
-            value={submitPost.address}
+            name="eth_addy"
+            value={submitPost.eth_addy}
             type='text'
             onChange={handleChange}
           ></textarea>
@@ -108,19 +115,21 @@ function PostForm(props) {
 {/* For drop down menu the Global must go first */}
         <div className="pure-control-group">
           <label htmlFor="paragraphs">Juristiction?</label>
-          <textarea
+        
+          <DropDownMenuForm onSelect={handleSelect} />
+          {/* <textarea
             name="article"
             value={submitPost.article}
             type='text'
             onChange={handleChange}
-          ></textarea>
+          ></textarea> */}
         </div>
 
         <div className="pure-control-group">
           <label htmlFor="paragraphs">Article title/summary?</label>
           <textarea
-            name="article"
-            value={submitPost.article}
+            name="snippet"
+            value={submitPost.snippet}
             type='text'
             onChange={handleChange}
           ></textarea>

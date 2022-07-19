@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import VoteButton from './VoteButton'
 
 function PostSummary(props) {
-  const { title, paragraphs, dateCreated, id, voteCount, categories } = props.post
+  const { title, snippet, dateCreated, id, voteCount, categories } = props.post
+  
   return (
     <div className="post">
       
@@ -27,8 +28,8 @@ function PostSummary(props) {
 
         </header>
       
+      <p>{snippet}</p>
 
-      <p>{paragraphs}</p>
 
       {props.children}
     </div>

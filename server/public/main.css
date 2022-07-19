@@ -129,3 +129,8 @@ flex-grow: 1;
   flex-grow: 3;
   
   }
+
+  .searchbar {
+background-color: red;
+  
+  }

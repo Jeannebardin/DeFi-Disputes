@@ -47,7 +47,7 @@ h3 {
 }
 .brand-tagline {
   font-weight: 300;
-  color: rgb(176, 202, 219);
+  color: white
 }
 
 .nav-list {
@@ -244,4 +244,4 @@ h3 {
     letter-spacing: 0.1em;
   }
   }
-}
+

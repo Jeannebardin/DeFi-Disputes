@@ -12,8 +12,12 @@ router.get('/', (req, res) => {
    
         post.dateCreated = post.date_created
         post.voteCount = post.vote_count
+        post.userName = post.user_name
+        post.ethAddy = post.eth_addy
         delete post.date_created
         delete post.vote_count
+        delete post.user_name
+        delete post.eth_addy
         return db.getCategoriesbyPostID(post.id).then((categories)=>{
           post.categories = categories
           return(post)

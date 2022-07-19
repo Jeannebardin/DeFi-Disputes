@@ -23,11 +23,7 @@ function Contact() {
       </ul>
       <div>{contentMoar}</div>
 
-<br>
-</br>
-      <div className="pure-controls">
-          <input className="pure-button" type="submit" />
-        </div>
+
     </div>
 
     

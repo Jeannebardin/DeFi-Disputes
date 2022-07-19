@@ -3,7 +3,7 @@ import React from 'react'
 import Select from 'react-select'
 import { getdropDownMenu } from '../api'
 
-function dropDownMenu({ onSelect }) {
+function dropDownMenuForm({ onSelect }) {
   const [options, setOptions] = React.useState([])
 
   const handleSelect = React.useCallback((value) => {
@@ -17,7 +17,7 @@ function dropDownMenu({ onSelect }) {
         const topic = []
         const groups = [
           { label: 'Jurisdiction', options: Jurisdiction },
-          { label: 'Topic', options: topic },
+          // { label: 'Topic', options: topic },
         ]
 
         categories
@@ -51,4 +51,4 @@ function dropDownMenu({ onSelect }) {
   )
 }
 
-export default dropDownMenu
+export default dropDownMenuForm
