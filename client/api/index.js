@@ -120,11 +120,11 @@ function validatePostResponse(method, route, post) {
 
 export function getdropDownMenu() {
 return request
-.get('./DropDownMenu')
+.get('/v1/categories')
 .then((res) => {
   return res.body
 })
-.catch(errorHandler('GET', '/DropDownMenu'))
+.catch(errorHandler('GET', '/v1/categories'))
 
 }
 

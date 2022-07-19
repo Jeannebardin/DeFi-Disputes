@@ -6,9 +6,10 @@ import useFetchPosts from './hooks/useFetchPosts'
 import Layout from './Layout'
 import Post from './Post'
 import Posts from './Posts'
-// import PostForm from './PostForm'
+import PostForm from './PostForm'
 import CommentForm from './CommentForm'
 import FormAboutContactLayout from './FormAboutContactLayout'
+import Form from './Form'
 import SubmitSuccess from './SubmitSuccess'
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="new" element={<PostForm variant="new" />} /> */}
         </Route>
 
+        {/* <Route path="Submit" element={<FormAboutContactLayout/>} /> */}
         <Route path="Submit" element={<FormAboutContactLayout/>} />
         <Route path="Success!" element={<SubmitSuccess/>} />
       </Route>
