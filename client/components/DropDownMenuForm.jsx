@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Select from 'react-select'
-import { getdropDownMenu } from '../api'
+import { getDropDownMenuForm } from '../api'
 
 function dropDownMenuForm({ onSelect }) {
   const [options, setOptions] = React.useState([])
@@ -11,7 +11,7 @@ function dropDownMenuForm({ onSelect }) {
   }, [])
 
   React.useEffect(() => {
-    getdropDownMenu()
+    getDropDownMenuForm()
       .then((categories) => {
         const Jurisdiction = []
         const topic = []

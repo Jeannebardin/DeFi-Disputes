@@ -5,25 +5,16 @@ import React, {
 import { 
   // useParams,
    useNavigate, useOutletContext } from 'react-router-dom'
-import { addPost, 
-  // updatePost 
-} from '../api'
+import { addGodaddyPost} from '../api'
 import DropDownMenuForm from './DropDownMenuForm'
 
 function PostForm(props) {
   const navigate = useNavigate()
-  // // const { id } = useParams()
-  // const { 
-  //   loading, 
-  //   fetchPosts } = useOutletContext()
-  const [submitPost, submitNewPost] = useState({ user_name: '', title: '', eth_addy: '', jurisdiction: 1, snippet: '' })
+ 
+  const [submitPost, submitNewPost] = useState({ user_name: '', title: '', eth_addy: '', jurisdiction: 1, snippet: '', date_created: Date(Date.now())}) 
   const [errorMessage, setErrorMessage] = useState('')
 
-  // useEffect(() => {
-  //   if (props.variant === 'edit' && !loading) {
-  //     submitNewPost({ })
-  //   }
-  // }, [])
+
 
   const handleSelect = React.useCallback((value) => {
     console.log(value)
@@ -33,29 +24,22 @@ function PostForm(props) {
 
   function onSubmit(e) {
     e.preventDefault()
-    if (!completePostData(submitPost)) return null
-    // if (props.variant === 'edit') {
-    //   return updatePost({ ...submitPost, id }).then(() => {
-    //     fetchPosts()
-    //     navigate(`/posts/${submitPost.id}`)
-    //     return null
-    //   })
-    // }
-    if (props.variant === 'new') {
-      return addPost(submitPost).then((submitPost) => {
-        // fetchPosts()
-        // make new route in App to take me to successful submission
-        navigate(`/posts/${submitPost.id}`)
+    if (!completePostData(submitPost)) {return null}
+    else {
+      return addGodaddyPost(submitPost).then((submitPost) => {
+      console.log(submitPost)
+        navigate(`/`)
         return null
       })
     }
   }
 
   function completePostData(submitPost) {
-    if (submitPost.contact && submitPost.article && submitPost.address) {
+
+    if (submitPost.user_name && submitPost.title && submitPost.eth_addy && submitPost.snippet) {
       return true
     } else {
-      setErrorMessage('Please complete all three fields and make us happy!')
+      setErrorMessage('Please complete all five fields and make us happy!')
       // <h2 className="post-title">Edit Post</h2>
       return false
     }
@@ -76,8 +60,6 @@ function PostForm(props) {
       ) : (
         <h2 className="post-title">Submit a LINK</h2>
       )}
-
-
 {/* Need to add <input type='text'/> for these within labels */}
 
       <fieldset>
@@ -135,11 +117,6 @@ function PostForm(props) {
           ></textarea>
         </div>
 
-       
-        {/* add Title, Juristiction drop down, Topic drop down
-        or rather if a word is contained in the title or link auto categorise it. */}
-
-    
 
         <div className="pure-controls">
           <input className="pure-button" type="submit" />

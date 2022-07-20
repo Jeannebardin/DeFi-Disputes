@@ -9,10 +9,20 @@ export function getPosts() {
       return res.body
     })
     .catch(errorHandler('GET', '/v1/posts'))
+
+}
+export function addGodaddyPost(userSubmission) {
+  return request
+  .post('/v1/posts/addGoDaddy')
+  .send(userSubmission)
+  .then((res) => {
+
+  return res.body
+  })
 }
 
+
 export function addPost(post) {
-  // convert the large paragraphs string into an array of paragraphs
   return request
     .post('/v1/posts')
     .send(post)
@@ -25,7 +35,6 @@ export function addPost(post) {
 }
 
 export function updatePost(post) {
-  // convert the large paragraphs string into an array of paragraphs
   post.paragraphs = post.paragraphs.split('\n')
   return request
     .patch(`/v1/posts/${post.id}`)
@@ -127,6 +136,22 @@ return request
 .catch(errorHandler('GET', '/v1/categories'))
 
 }
+
+export function getDropDownMenuForm() {
+  return request
+  .get('/v1/categories')
+  .then((res) => {
+    return res.body
+  })
+  .catch(errorHandler('GET', '/v1/categories'))
+  
+  }
+
+
+
+
+
+
 
 
 

@@ -9,13 +9,14 @@ import Posts from './Posts'
 import PostForm from './PostForm'
 import CommentForm from './CommentForm'
 import FormAboutContactLayout from './FormAboutContactLayout'
-import Form from './Form'
+// import Form from './Form'
 import SubmitSuccess from './SubmitSuccess'
+import ParagraphOnPost from './ParagraphOnPost'
+
 
 function App() {
-  const { posts, loading, error, fetchPosts } = useFetchPosts()
-
-  return (
+const { posts, loading, error, fetchPosts } = useFetchPosts()
+return (
     <Routes>
       <Route path="/" element={<Layout errorMessage={error} />}>
         <Route index element={<Posts posts={posts} />} />
@@ -23,7 +24,7 @@ function App() {
           path="posts"
           element={<Outlet context={{ posts, loading, error, fetchPosts }} />}
         >
-          <Route path=":id" element={<Post />}>
+          <Route path=":id" element={<ParagraphOnPost />}>
             <Route
               path="comments/new"
               element={<CommentForm variant="new" />}

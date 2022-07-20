@@ -10,10 +10,10 @@ import useFetchComments from './hooks/useFetchComments'
 
 import { deletePost } from '../api'
 
-import PostSummary from './PostSummary'
+import PostSummaryParagraphOnPost from './PostSummaryParagraphOnPost'
 import Comment from './Comment'
 
-function Post() {
+function ParagraphOnPost() {
   const { id } = useParams()
   const { posts, loading, error, fetchPosts } = useOutletContext()
   const navigate = useNavigate()
@@ -38,7 +38,7 @@ function Post() {
 
   return (
     <>
-      <PostSummary post={post}>
+      <PostSummaryParagraphOnPost post={post}>
         <div className="pure-button-group" role="group">
           <Link to={`/posts/${id}/edit`}>
             <button className="button-secondary pure-button">Edit</button>
@@ -71,9 +71,9 @@ function Post() {
 
         {error && error}
         {commentsError && commentsError}
-      </PostSummary>
+      </PostSummaryParagraphOnPost>
     </>
   )
 }
 
-export default Post
+export default ParagraphOnPost

@@ -7,7 +7,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getAllPosts()
     .then(posts => {
-     console.log(posts)
+    //  console.log(posts)
       const allThePosts = posts.map(post => {
    
         post.dateCreated = post.date_created
@@ -42,6 +42,33 @@ router.post('/', (req, res) => {
     })
     .catch(err => res.status(500).json({ message: err.message }))
 })
+
+router.post('/addGoDaddy', (req, res) => {
+  const { user_name, title, eth_addy, jurisdiction, snippet, date_created } = req.body
+  const userSubmission = {
+
+title: title,
+snippet: snippet,
+date_created: date_created,
+paragraphs: '',
+user_name: user_name,
+eth_addy: eth_addy
+  }
+console.log(userSubmission)
+  db.addgodaddyPost(userSubmission)
+    .then(idArr => {
+      const id = idArr[0]
+    //  res.json(id)
+    return db.addTogodaddyPosts_categories(id, jurisdiction)
+    })
+    .then(idArr => {
+      const id = idArr[0]
+     res.json(1)
+    })
+    .catch(err => res.status(500).json({ message: err.message }))
+  })
+
+
 
 router.patch('/:id', (req, res) => {
   const { id } = req.params
