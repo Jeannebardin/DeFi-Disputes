@@ -1,13 +1,22 @@
+Defidisputes is "REKT for REG";  
 
-## Gotchas
+It is a site that summarises the top stories in the world of crypto regulation and disputes, and is run by community for community.
+We did a V1 here: https://defidisputes.com/
 
-- The database fields are snake_case, but the frontend fields are camelCase. To make this work, you need to make sure you convert the fields from snake_case to camelCase when sending from the server to the client, and camelCase to snake_case when posting to the server. Remember that you can use the `as` keyword in your Knex `select` calls to control the names of the properties that come back from your queries. If you'd rather use an external library, you may find the following links useful:
-  - https://www.npmjs.com/package/camelcase-keys
-  - https://lodash.com/docs/4.17.4#camelCase
-  - https://lodash.com/docs/4.17.4#snakeCase
-  - https://lodash.com/docs/4.17.11#mapKeys
-- Instead of using `res.render` you will need to use `res.json`
+Its a place for lawyers, accountants, policy makers and the curious public to search for articles by topic area, and save time. 
+Keeping on top of it all can be challenging! This makes life easier.
 
+You can search by:
 
-
-- Add the ability to like / dislike comments (once you have done the migrations/seeds/queries/api routes, you will need to write some front end `api` functions and `React` components to display these - have a particular look at the `client/api/index.js` and `client/components/Post.jsx` for pointers on how to add client side API routes and front end components)
+ - Country/Jurisdiction
+ - Topic area: eg. "stablecoins", "ERC-721", "DEX"...
+ 
+ There is a web 3 sign in with Ethereum, which allows you to vote up as well as comment on posts. You can also submit your own or other articles.
+ 
+ The articles on the front page are ranked by recency, popularity and (initially) by moderator curation.
+ 
+ In future we hope to use ML to be able to make this as unbiased as possible, similar to how REKT uses Twitter.
+ 
+ The site is in development, but you can run it on your localhost to get a feel.
+ 
+ I built it for my friends, as part of my grad project for Dev Academy, Wellington.
